@@ -7,7 +7,14 @@ const axios = require("axios");
 const app = express();
 const port = 3000;
 
-app.use(cors());
+//app.use(cors());  //cors전체허용
+app.use(
+  cors({
+    origin: "https://aibe1-extra-lec.github.io",
+    methods: ["POST"],
+    allowHeaders: ["Content-Type"],
+  })
+);
 app.use(express.json());
 
 app.post("/", async (req, res) => {
